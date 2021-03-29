@@ -1,0 +1,11 @@
+@import "../../../constants";
+
+.card-content {
+  display: flex;
+}
+
+.image {
+  width: 8rem;
+  align-self: center;
+  margin-right: $space-lg;
+}

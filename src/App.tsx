@@ -1,18 +1,22 @@
 import React, {useEffect} from 'react';
-import {useDispatch} from "react-redux";
-import './App.css';
 import {setupApp} from "./app/actions/app";
+import {LaunchesList} from "./features/launches/launches-list";
+import {useAppDispatch} from "./app/utils";
+
+
+import "antd/dist/antd.min.css";
+import styles from "./styles.module.scss";
 
 function App() {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		dispatch(setupApp());
 	}, []);
 
 	return (
-		<div className="App">
-			App
+		<div className={styles.app}>
+			<LaunchesList/>
 		</div>
 	);
 }

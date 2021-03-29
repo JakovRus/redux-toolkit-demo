@@ -5,6 +5,12 @@ export function transformRawLaunches(launches: NormalizedRawLaunches): Launch[] 
 	const launchIds = Object.keys(launches);
 
 	return Array.from(launchIds).map(id => {
-		return camelizeKeys(launches[id]) as Launch;
+		const camelized = camelizeKeys(launches[id]);
+		const missionPatchSmall = launches[id]?.links.mission_patch_small;
+
+		return {
+			...camelized,
+			missionPatchSmall,
+		} as Launch;
 	});
 }

@@ -43,6 +43,8 @@
     ]
   },
   "devDependencies": {
-    "@types/humps": "^2.0.0"
+    "@types/humps": "^2.0.0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.1"
   }
 }
