@@ -13,7 +13,7 @@ export type SetupAppInfo = {
 }
 
 export const setupApp = createAsyncThunk(
-	"",
+	"appSetup",
 	async () => {
 		const response = await appAPI.fetchData();
 
