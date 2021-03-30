@@ -1,12 +1,11 @@
 import React from "react";
 import {useAppSelector} from "../../../utils";
-import {launchesSelectors} from "../slice";
 import {LaunchCard} from "../card";
 import {List} from "antd";
 import {WithClassName} from "../../../../types/utils";
 import {EntityId} from "@reduxjs/toolkit";
 import {getPaginationConfig} from "../../../../utils/get-pagination-config";
-import {RootState} from "../../../store";
+import {getLaunchesId} from "./selectors";
 
 export type LaunchesListProps = WithClassName & {
 	rocket: string;
@@ -14,7 +13,7 @@ export type LaunchesListProps = WithClassName & {
 };
 
 export function LaunchesList(props: LaunchesListProps) {
-	const launchIds = useAppSelector(state => getLaunchesIds(state, props.rocket, props.launchSite));
+	const launchIds = useAppSelector(state => getLaunchesId(state, props));
 	const loading = useAppSelector(state => state.launches.loading);
 	const paginationConfig = getPaginationConfig();
 
@@ -27,23 +26,4 @@ export function LaunchesList(props: LaunchesListProps) {
 					className={props.className} renderItem={renderItem}
 					loading={loading}/>
 	);
-}
-
-function getLaunchesIds(state: RootState, rocket: string, launchSite: string) {
-	return launchesSelectors.selectAll(state)
-		.filter(launch => {
-			if (!rocket) {
-				return true;
-			}
-
-			return launch.rocket === rocket;
-		})
-		.filter(launch => {
-			if (!launchSite) {
-				return true;
-			}
-
-			return launch.launchSite === launchSite;
-		})
-		.map(launch => launch.flightNumber);
 }

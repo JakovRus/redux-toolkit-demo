@@ -10,8 +10,9 @@ export type LaunchCardProps = {
 	launchId: string;
 }
 
-export function LaunchCard(props: LaunchCardProps) {
+function LaunchCardBase(props: LaunchCardProps) {
 	const launch = useAppSelector(state => launchesSelectors.selectById(state, props.launchId));
+
 	if (!launch) {
 		return (
 			<List.Item>
@@ -40,3 +41,5 @@ export function LaunchCard(props: LaunchCardProps) {
 function formatDate(launchDateUnix: string) {
 	return new Date(launchDateUnix).toLocaleDateString();
 }
+
+export const LaunchCard = React.memo(LaunchCardBase);

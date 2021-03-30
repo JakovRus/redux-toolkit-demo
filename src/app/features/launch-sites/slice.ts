@@ -27,7 +27,7 @@ const launchSitesSlice = createSlice({
 
 		builder.addCase(setupApp.fulfilled, (state: LaunchSitesState, action: PayloadAction<SetupAppInfo>) => {
 			const {launchSites} = action.payload;
-			console.log(action);
+
 			launchSitesAdapter.setAll(state, transformRawLaunchSites(launchSites));
 			state.loading = false;
 		})

@@ -14,8 +14,11 @@ export function RocketsFilter(props: RocketsFilterProps) {
 		props.onSelect("")
 	};
 
+	// need to show placeholder
+	const value = props.value || undefined;
+
 	return (
-		<Select options={options} {...props}
+		<Select options={options} {...props} value={value}
 						onClear={onClear} loading={loading}
 						placeholder="Rocket name"
 						allowClear/>
