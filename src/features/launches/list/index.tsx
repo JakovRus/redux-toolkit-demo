@@ -5,9 +5,9 @@ import {Launch} from "../card";
 import {List} from "antd";
 import {WithClassName} from "../../../types/utils";
 import {getClassName} from "../../../utils/get-class-name";
-import styles from "./styles.module.scss";
 import {EntityId} from "@reduxjs/toolkit";
 import {getPaginationConfig} from "../../../utils/get-pagination-config";
+import styles from "./styles.module.scss";
 
 export function LaunchesList(props: WithClassName) {
 	const launchIds = useAppSelector(state => launchesSelectors.selectIds(state));

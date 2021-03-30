@@ -1,10 +1,10 @@
 import React from "react";
-import {Card, Empty, List, Space, Typography} from "antd";
+import {Empty, List, Typography} from "antd";
 import {useAppSelector} from "../../../app/utils";
 import {launchesSelectors} from "../slice";
 import styles from "./styles.module.scss";
 
-const {Title, Paragraph} = Typography;
+const {Title, Paragraph, Text} = Typography;
 
 export type LaunchCardProps = {
 	launchId: string;
@@ -14,9 +14,9 @@ export function Launch(props: LaunchCardProps) {
 	const launch = useAppSelector(state => launchesSelectors.selectById(state, props.launchId));
 	if (!launch) {
 		return (
-			<Card>
+			<List.Item>
 				<Empty/>
-			</Card>
+			</List.Item>
 		)
 	}
 
@@ -25,11 +25,18 @@ export function Launch(props: LaunchCardProps) {
 			<div className={styles["card-content"]}>
 				<img src={launch.missionPatchSmall} alt={launch.missionName}
 						 className={styles.image}/>
-				<Space direction="vertical">
-					<Title>{launch.missionName}</Title>
+				<div className={styles.info}>
+					<div className={styles.header}>
+						<Title>{launch.missionName}</Title>
+						<Text>{formatDate(launch.launchDateUnix)}</Text>
+					</div>
 					<Paragraph>{launch.details}</Paragraph>
-				</Space>
+				</div>
 			</div>
 		</List.Item>
 	)
+}
+
+function formatDate(launchDateUnix: string) {
+	return new Date(launchDateUnix).toLocaleDateString();
 }

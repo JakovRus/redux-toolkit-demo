@@ -2,10 +2,32 @@
 
 .card-content {
   display: flex;
+  flex-grow: 1;
+
+  padding: $space-md;
 }
 
 .image {
   width: 8rem;
   align-self: center;
-  margin-right: $space-lg;
+  margin-right: $space-xl;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: $space-md;
+
+  h1 {
+    margin-bottom: 0 !important;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
 }
