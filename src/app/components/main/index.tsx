@@ -17,7 +17,9 @@ export function Main() {
 					<RocketsFilter className={styles.filter}
 												 {...filters.rocket}/>
 				</div>
-				<LaunchesList className={styles.list}/>
+				<LaunchesList launchSite={filters.launchSite.value}
+											rocket={filters.rocket.value}
+											className={styles.list}/>
 			</div>
 		</div>
 	);

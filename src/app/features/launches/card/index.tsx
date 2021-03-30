@@ -10,7 +10,7 @@ export type LaunchCardProps = {
 	launchId: string;
 }
 
-export function Launch(props: LaunchCardProps) {
+export function LaunchCard(props: LaunchCardProps) {
 	const launch = useAppSelector(state => launchesSelectors.selectById(state, props.launchId));
 	if (!launch) {
 		return (
