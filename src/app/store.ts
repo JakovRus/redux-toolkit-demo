@@ -1,7 +1,7 @@
 import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
-import {rocketsReducer} from "../features/rockets/slice";
-import {launchSitesReducer} from "../features/launch-sites/slice";
-import {launchesReducer} from "../features/launches/slice";
+import {rocketsReducer} from "./features/rockets/slice";
+import {launchSitesReducer} from "./features/launch-sites/slice";
+import {launchesReducer} from "./features/launches/slice";
 
 export const store = configureStore({
 	reducer: {

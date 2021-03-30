@@ -1,18 +1,15 @@
 import React from "react";
-import {useAppSelector} from "../../../app/utils";
+import {useAppSelector} from "../../../utils";
 import {launchesSelectors} from "../slice";
 import {Launch} from "../card";
 import {List} from "antd";
-import {WithClassName} from "../../../types/utils";
-import {getClassName} from "../../../utils/get-class-name";
+import {WithClassName} from "../../../../types/utils";
 import {EntityId} from "@reduxjs/toolkit";
-import {getPaginationConfig} from "../../../utils/get-pagination-config";
-import styles from "./styles.module.scss";
+import {getPaginationConfig} from "../../../../utils/get-pagination-config";
 
 export function LaunchesList(props: WithClassName) {
 	const launchIds = useAppSelector(state => launchesSelectors.selectIds(state));
 	const loading = useAppSelector(state => state.launches.loading);
-	const className = getClassName(styles.list, props.className);
 	const paginationConfig = getPaginationConfig();
 
 	const renderItem = (id: EntityId) => (
@@ -21,7 +18,7 @@ export function LaunchesList(props: WithClassName) {
 
 	return (
 		<List dataSource={launchIds} pagination={paginationConfig}
-					className={className} renderItem={renderItem}
+					className={props.className} renderItem={renderItem}
 					loading={loading}/>
 	);
 }

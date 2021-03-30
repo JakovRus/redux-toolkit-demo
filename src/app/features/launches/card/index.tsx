@@ -1,6 +1,6 @@
 import React from "react";
 import {Empty, List, Typography} from "antd";
-import {useAppSelector} from "../../../app/utils";
+import {useAppSelector} from "../../../utils";
 import {launchesSelectors} from "../slice";
 import styles from "./styles.module.scss";
 

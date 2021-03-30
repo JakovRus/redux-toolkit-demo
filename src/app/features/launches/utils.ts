@@ -1,4 +1,4 @@
-import {Launch, NormalizedRawLaunches} from "../../types/launch";
+import {Launch, NormalizedRawLaunches} from "../../../types/launch";
 import {camelizeKeys} from "humps";
 
 export function transformRawLaunches(launches: NormalizedRawLaunches): Launch[] {

@@ -1,9 +1,9 @@
 import {createEntityAdapter, createSlice, EntityState, PayloadAction} from "@reduxjs/toolkit";
-import {LaunchSite} from "../../types/launch-site";
-import {setupApp, SetupAppInfo} from "../../app/actions/app";
+import {LaunchSite} from "../../../types/launch-site";
+import {setupApp, SetupAppInfo} from "../../actions/app";
 import {transformRawLaunchSites} from "./utils";
-import {WithLoading} from "../../types/utils";
-import {RootState} from "../../app/store";
+import {WithLoading} from "../../../types/utils";
+import {RootState} from "../../store";
 
 export type LaunchSitesState = EntityState<LaunchSite> & WithLoading;
 

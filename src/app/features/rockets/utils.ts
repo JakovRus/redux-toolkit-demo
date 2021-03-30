@@ -1,4 +1,4 @@
-import {NormalizedRawRockets, Rocket} from "../../types/rocket";
+import {NormalizedRawRockets, Rocket} from "../../../types/rocket";
 import {camelizeKeys} from "humps";
 
 export function transformRawRockets(rockets: NormalizedRawRockets): Rocket[] {

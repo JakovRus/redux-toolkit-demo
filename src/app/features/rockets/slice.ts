@@ -1,9 +1,9 @@
 import {createEntityAdapter, createSlice, EntityState, PayloadAction} from "@reduxjs/toolkit";
-import {setupApp, SetupAppInfo} from "../../app/actions/app";
-import {Rocket} from "../../types/rocket";
+import {setupApp, SetupAppInfo} from "../../actions/app";
+import {Rocket} from "../../../types/rocket";
 import {transformRawRockets} from "./utils";
-import {WithLoading} from "../../types/utils";
-import {RootState} from "../../app/store";
+import {WithLoading} from "../../../types/utils";
+import {RootState} from "../../store";
 
 export type RocketsState = EntityState<Rocket> & WithLoading;
 

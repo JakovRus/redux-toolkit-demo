@@ -1,11 +1,10 @@
 import React, {useEffect} from 'react';
 import {setupApp} from "./app/actions/app";
-import {LaunchesList} from "./features/launches/list";
 import {useAppDispatch} from "./app/utils";
 
-
 import "antd/dist/antd.min.css";
-import styles from "./styles.module.scss";
+import "./app.scss";
+import {Main} from "./app/components/main";
 
 function App() {
 	const dispatch = useAppDispatch();
@@ -15,10 +14,9 @@ function App() {
 	}, []);
 
 	return (
-		<div className={styles.app}>
-			<LaunchesList/>
-		</div>
+		<Main/>
 	);
 }
+
 
 export default App;

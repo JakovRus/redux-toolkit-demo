@@ -1,4 +1,4 @@
-import {LaunchSite, NormalizedRawLaunchSites} from "../../types/launch-site";
+import {LaunchSite, NormalizedRawLaunchSites} from "../../../types/launch-site";
 import {camelizeKeys} from "humps";
 
 export function transformRawLaunchSites(launchSites: NormalizedRawLaunchSites): LaunchSite[] {
