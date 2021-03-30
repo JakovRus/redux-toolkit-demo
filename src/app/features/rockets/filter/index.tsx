@@ -8,9 +8,17 @@ export type RocketsFilterProps = WithClassName & Filter;
 
 export function RocketsFilter(props: RocketsFilterProps) {
 	const options = useFilterOptions();
+	const loading = useAppSelector(state => state.rockets.loading);
+
+	const onClear = () => {
+		props.onSelect("")
+	};
 
 	return (
-		<Select options={options} {...props}/>
+		<Select options={options} {...props}
+						onClear={onClear} loading={loading}
+						placeholder="Rocket name"
+						allowClear/>
 	)
 }
 

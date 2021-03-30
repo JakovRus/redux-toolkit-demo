@@ -8,9 +8,17 @@ export type LaunchSitesFilterProps = WithClassName & Filter;
 
 export function LaunchSitesFilter(props: LaunchSitesFilterProps) {
 	const options = useFilterOptions();
+	const loading = useAppSelector(state => state.launchSites.loading);
+
+	const onClear = () => {
+		props.onSelect("")
+	};
 
 	return (
-		<Select options={options} {...props}/>
+		<Select options={options} {...props}
+						onClear={onClear} loading={loading}
+						placeholder="Launch site"
+						allowClear/>
 	)
 }
 
