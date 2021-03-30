@@ -9,7 +9,7 @@ type Links = {
 export type LaunchRaw = {
 	flight_number: number;
 	mission_name: string;
-	launch_date_unix: string;
+	launch_date_local: string;
 	rocket: RocketRaw;
 	launch_site: LaunchSiteRaw;
 	links: Links;
@@ -19,7 +19,7 @@ export type LaunchRaw = {
 export type Launch = {
 	flightNumber: string;
 	missionName: string;
-	launchDateUnix: string;
+	launchDateLocal: string;
 	rocket: string;
 	launchSite: string;
 	missionPatchSmall: string;

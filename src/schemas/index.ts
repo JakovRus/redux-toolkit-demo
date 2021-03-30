@@ -33,7 +33,7 @@ const launch = new schema.Entity<LaunchRaw>("launches", {
 		return {
 			flight_number: value.flight_number,
 			mission_name: value.mission_name,
-			launch_date_unix: value.launch_date_unix,
+			launch_date_local: value.launch_date_local,
 			links: {
 				mission_patch_small: value.links.mission_patch_small,
 			},

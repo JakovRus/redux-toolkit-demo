@@ -29,7 +29,7 @@ function LaunchCardBase(props: LaunchCardProps) {
 				<div className={styles.info}>
 					<div className={styles.header}>
 						<Title>{launch.missionName}</Title>
-						<Text>{formatDate(launch.launchDateUnix)}</Text>
+						<Text>{formatDate(launch.launchDateLocal)}</Text>
 					</div>
 					<Paragraph>{launch.details}</Paragraph>
 				</div>
@@ -38,8 +38,8 @@ function LaunchCardBase(props: LaunchCardProps) {
 	)
 }
 
-function formatDate(launchDateUnix: string) {
-	return new Date(launchDateUnix).toLocaleDateString();
+function formatDate(launchDateLocal: string) {
+	return new Date(launchDateLocal).toLocaleDateString();
 }
 
 export const LaunchCard = React.memo(LaunchCardBase);
