@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {setupApp} from "./app/actions/app";
-import {LaunchesList} from "./features/launches/launches-list";
+import {LaunchesList} from "./features/launches/list";
 import {useAppDispatch} from "./app/utils";
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, Empty, Space, Typography} from "antd";
+import {Card, Empty, List, Space, Typography} from "antd";
 import {useAppSelector} from "../../../app/utils";
 import {launchesSelectors} from "../slice";
 import styles from "./styles.module.scss";
@@ -10,7 +10,7 @@ export type LaunchCardProps = {
 	launchId: string;
 }
 
-export function LaunchCard(props: LaunchCardProps) {
+export function Launch(props: LaunchCardProps) {
 	const launch = useAppSelector(state => launchesSelectors.selectById(state, props.launchId));
 	if (!launch) {
 		return (
@@ -21,7 +21,7 @@ export function LaunchCard(props: LaunchCardProps) {
 	}
 
 	return (
-		<Card>
+		<List.Item>
 			<div className={styles["card-content"]}>
 				<img src={launch.missionPatchSmall} alt={launch.missionName}
 						 className={styles.image}/>
@@ -30,6 +30,6 @@ export function LaunchCard(props: LaunchCardProps) {
 					<Paragraph>{launch.details}</Paragraph>
 				</Space>
 			</div>
-		</Card>
+		</List.Item>
 	)
 }
