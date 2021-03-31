@@ -1,10 +1,7 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
-import {appAPI} from "../../api";
-import {normalize} from "normalizr";
-import {schemas} from "../../schemas";
+import {createAction} from "@reduxjs/toolkit";
 import {NormalizedRawRockets} from "../../types/rocket";
 import {NormalizedRawLaunchSites} from "../../types/launch-site";
-import {LaunchRaw, NormalizedRawLaunches} from "../../types/launch";
+import {NormalizedRawLaunches} from "../../types/launch";
 
 export type SetupAppInfo = {
 	rockets: NormalizedRawRockets;
@@ -12,12 +9,6 @@ export type SetupAppInfo = {
 	launches: NormalizedRawLaunches;
 }
 
-export const setupApp = createAsyncThunk(
-	"appSetup",
-	async () => {
-		const response = await appAPI.fetchData();
-
-		const normalized = normalize<LaunchRaw, SetupAppInfo>(response, schemas.launches);
-		return normalized.entities;
-	}
-);
+export const appInfoRequested = createAction("APP_INFO_REQUESTED");
+export const appInfoRequestSucceeded = createAction<SetupAppInfo>("APP_INFO_REQUEST_SUCCEEDED");
+export const appInfoRequestFailed = createAction("APP_INFO_REQUEST_FAILED");

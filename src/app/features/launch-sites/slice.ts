@@ -1,6 +1,6 @@
 import {createEntityAdapter, createSlice, EntityState, PayloadAction} from "@reduxjs/toolkit";
 import {LaunchSite} from "../../../types/launch-site";
-import {setupApp, SetupAppInfo} from "../../actions/app";
+import {appInfoRequested, appInfoRequestSucceeded, SetupAppInfo} from "../../actions/app";
 import {transformRawLaunchSites} from "./utils";
 import {WithLoading} from "../../../types/utils";
 import {RootState} from "../../store";
@@ -21,11 +21,11 @@ const launchSitesSlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: builder => {
-		builder.addCase(setupApp.pending, (state: LaunchSitesState) => {
+		builder.addCase(appInfoRequested.type, (state: LaunchSitesState) => {
 			state.loading = true;
 		});
 
-		builder.addCase(setupApp.fulfilled, (state: LaunchSitesState, action: PayloadAction<SetupAppInfo>) => {
+		builder.addCase(appInfoRequestSucceeded, (state: LaunchSitesState, action: PayloadAction<SetupAppInfo>) => {
 			const {launchSites} = action.payload;
 
 			launchSitesAdapter.setAll(state, transformRawLaunchSites(launchSites));

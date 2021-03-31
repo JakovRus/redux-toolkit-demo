@@ -1,5 +1,5 @@
 import {createEntityAdapter, createSlice, EntityState, PayloadAction} from "@reduxjs/toolkit";
-import {setupApp, SetupAppInfo} from "../../actions/app";
+import {appInfoRequested, appInfoRequestSucceeded, SetupAppInfo} from "../../actions/app";
 import {Rocket} from "../../../types/rocket";
 import {transformRawRockets} from "./utils";
 import {WithLoading} from "../../../types/utils";
@@ -21,11 +21,11 @@ export const rocketsSlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: builder => {
-		builder.addCase(setupApp.pending, (state: RocketsState) => {
+		builder.addCase(appInfoRequested.type, (state: RocketsState) => {
 			state.loading = true;
 		});
 
-		builder.addCase(setupApp.fulfilled, (state: RocketsState, action: PayloadAction<SetupAppInfo>) => {
+		builder.addCase(appInfoRequestSucceeded.type, (state: RocketsState, action: PayloadAction<SetupAppInfo>) => {
 			const {rockets} = action.payload;
 
 			rocketsAdapter.setAll(state, transformRawRockets(rockets));

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {setupApp} from "./app/actions/app";
+import {appInfoRequested} from "./app/actions/app";
 import {useAppDispatch} from "./app/utils";
 
 import "antd/dist/antd.min.css";
@@ -10,7 +10,7 @@ function App() {
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		dispatch(setupApp());
+		dispatch(appInfoRequested());
 	}, []);
 
 	return (
